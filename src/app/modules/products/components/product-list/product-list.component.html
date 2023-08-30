@@ -1,0 +1,60 @@
+<div class="row">
+
+  <div class="col-sm-12 mb-3">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <input type="text" class="form-control" placeholder="Buscar..." style="width: 30%;">
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <button class="btn btn-warning text-dark" style="float: right;" (click)="createOrEditProduct()">Agregar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="card" style="width: 100%;">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12 mb-3">
+            <table class="table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Logo</th>
+                  <th>Nombre del producto</th>
+                  <th>Descripción</th>
+                  <th>Fecha de liberación</th>
+                  <th>Fecha de reestructuración</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody *ngIf="products.length > 0">
+                <tr *ngFor="let product of products">
+                  <td><img [src]="product.logo" alt="" style="width: 25px; border-radius: 50%;"></td>
+                  <td>{{ product.name }}</td>
+                  <td>{{ product.description }}</td>
+                  <td>{{ product.date_release | datePipe }}</td>
+                  <td>{{ product.date_revision | datePipe }}</td>
+                  <td>
+                    <button class="btn btn-sm" title="Acciones" (click)="product.actions = !product.actions">...</button>
+                    <button *ngIf="product.actions" class="btn btn-sm btn-warning m-1" (click)="createOrEditProduct(product)">Editar</button>
+                    <button *ngIf="product.actions"class="btn btn-sm btn-danger m-1" (click)="removeProduct(product.id)">Eliminar</button>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="products.length == 0">
+                <tr>
+                  <td colspan="5" class="text-center">Sin resultados</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-sm-12">
+            {{ products.length }} Resultados
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

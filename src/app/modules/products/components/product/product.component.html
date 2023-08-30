@@ -1,0 +1,94 @@
+<section>
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-7">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mt-2">Formulario de Registro</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="form">
+            <div class="row">
+
+              <div class="col-sm-12 col-md-6">
+                <label for="id" class="col-form-label w-100 text-truncate">ID</label>
+                <input
+                  type="text"
+                  id="id"
+                  class="form-control"
+                  maxlength="100"
+                  [ngClass]="{'is-invalid': form.controls['id'].errors && form.controls['id'].touched }"
+                  formControlName="id">
+                <span *ngIf="form.controls['id'].errors && form.controls['id'].touched"> ID no valido </span>
+              </div>
+
+              <div class="col-sm-12 col-md-6">
+                <label for="name" class="col-form-label w-100 text-truncate">Nombre</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  maxlength="100"
+                  [ngClass]="{'is-invalid': form.controls['name'].errors && form.controls['name'].touched }"
+                  formControlName="name">
+                <span *ngIf="form.controls['name'].errors && form.controls['name'].touched"> Nombre no valido </span>
+              </div>
+
+              <div class="col-sm-12 col-md-6">
+                <label for="description" class="col-form-label w-100 text-truncate">Descripción</label>
+                <input
+                  type="text"
+                  id="description"
+                  class="form-control"
+                  maxlength="100"
+                  [ngClass]="{'is-invalid': form.controls['description'].errors && form.controls['description'].touched }"
+                  formControlName="description">
+                <span *ngIf="form.controls['description'].errors && form.controls['description'].touched"> Descripción no valida </span>
+              </div>
+
+              <div class="col-sm-12 col-md-6">
+                <label for="logo" class="col-form-label w-100 text-truncate">Logo</label>
+                <input
+                  type="text"
+                  id="logo"
+                  class="form-control"
+                  maxlength="100"
+                  [ngClass]="{'is-invalid': form.controls['logo'].errors && form.controls['logo'].touched }"
+                  formControlName="logo">
+                <span *ngIf="form.controls['logo'].errors && form.controls['logo'].touched"> Logo no valido </span>
+              </div>
+
+              <div class="col-sm-12 col-md-6">
+                <label for="date_release" class="col-form-label w-100 text-truncate">Fecha de liberación</label>
+                <input
+                  type="date"
+                  id="date_release"
+                  class="form-control"
+                  maxlength="100"
+                  [ngClass]="{'is-invalid': form.controls['date_release'].errors && form.controls['date_release'].touched }"
+                  formControlName="date_release">
+                <span *ngIf="form.controls['date_release'].errors && form.controls['date_release'].touched"> Fecha de liberación no valida </span>
+              </div>
+
+              <div class="col-sm-12 col-md-6">
+                <label for="date_revision" class="col-form-label w-100 text-truncate">Fecha de reestructuración</label>
+                <input
+                  type="date"
+                  id="date_revision"
+                  class="form-control"
+                  maxlength="100"
+                  [ngClass]="{'is-invalid': form.controls['date_revision'].errors && form.controls['date_revision'].touched }"
+                  formControlName="date_revision">
+                <span *ngIf="form.controls['date_revision'].errors && form.controls['date_revision'].touched"> Fecha de reestructuración no valida </span>
+              </div>
+
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" style="float: left;" (click)="resetForm()">Reiniciar</button>
+          <button class="btn btn-warning" style="float: right;" [disabled]="form.invalid" (click)="onSubmit()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
